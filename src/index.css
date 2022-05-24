@@ -1,13 +1,106 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  min-height: 100vh;
+}
+
+/* Navbar */
+.buttons{
+  width: inherit;
+  display: flex;
+  justify-content:space-between;
+}
+
+/* Containers */
+.main-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 2px solid green; */
+  width: 90vw;
+  height: inherit;
+}
+
+/* Input */
+.myInput {
+  /* border: 2px solid black; */
+}
+.input-button{
+  width: 350px;
+}
+
+/* Result */
+.myResult{
+  /* border: 2px solid black; */
+}
+.main-weather-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 2px solid yellow; */
+  height: inherit;
+  width: 100%;
+}
+.myResult{
+  width: 80%;
+}
+.weater-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid blue; */
+  height: fit-content;
+  width: 100%;
+}
+
+.weather-show{
+  background-color: white;
+  margin: 5px;
+  width: 30%;
+  border-radius: 5px;
+  box-shadow: 5px 5px 0 grey;
+}
+.weather-report{
+  background-color: #f5f5f5;
+  margin: 5px;
+  width: 60%;
+  border-radius: 5px;
+  box-shadow: 5px 5px  0 grey;
+}
+
+.heading-temp{
+  font-size: 4.5rem;
+  margin: 20px;
+  font-weight: bold;
+  text-align:center;
+}
+
+.temp-info{
+  display: flex;
+  justify-content: space-around;
+  font-size: 2rem;
+  margin: 20px;
+  font-weight: 500;
+  text-align:center
 }
