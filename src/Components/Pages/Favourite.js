@@ -4,7 +4,6 @@ import FavouriteResult from '../FavouriteResult'
 
 function Favourite() {
   const myFavourite = useSelector((state) => state.FavReducer.data);
-  // console.info(myFavourite);
 
   if(myFavourite.length > 0){
 

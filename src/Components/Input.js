@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import { fetchUsers } from "../Components/Context/Action";
-import { useDispatch  ,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 function Input() {
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
