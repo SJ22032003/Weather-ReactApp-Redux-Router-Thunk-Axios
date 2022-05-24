@@ -15,7 +15,8 @@ const userData = (state = initailState, action) => {
             return {
                 ...state,
                 loading : false,
-                data : action.payload
+                data : action.payload,
+                error : ""
             }
         case 'FETCH_USERS_FAILURE' :
             return {

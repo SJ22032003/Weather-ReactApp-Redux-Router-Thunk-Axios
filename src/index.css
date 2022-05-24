@@ -111,6 +111,6 @@ body {
 
 @media (max-width:520px){
   .weather-report{
-    width: 100%;
+    width: 350px;
   }
 }
