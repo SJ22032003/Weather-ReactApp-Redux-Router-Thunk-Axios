@@ -21,6 +21,14 @@ const FavReducer = (state = initialState, action) => {
       localStorage.setItem("favourite", JSON.stringify(newState));
       return newState;
 
+    case "REMOVE_FAV":
+      newState = {
+        ...state,
+        data: state.data.filter((item) => item.city !== action.payload),
+      }
+      localStorage.setItem("favourite", JSON.stringify(newState));
+      return newState;
+
     default:
       return state;
   }

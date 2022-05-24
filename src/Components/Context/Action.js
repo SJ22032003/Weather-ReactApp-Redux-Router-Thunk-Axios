@@ -36,6 +36,13 @@ export const deleteFavouriteWeather = (data) => {
     }
 }
 
+export const removeFav = (name) => {
+    return {
+        type: 'REMOVE_FAV',
+        payload:name,
+    }
+} 
+
 export const fetchUsers =  (city) => {
     return (dispatch) => {
         dispatch(fetchUsersRequest());

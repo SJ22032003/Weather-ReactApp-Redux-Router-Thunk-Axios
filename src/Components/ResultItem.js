@@ -5,7 +5,7 @@ function ResultItem({ temp , wind , humidity , city  }) {
     <>
         <div className='heading-temp'>
             <div className='flex text-lg flex justify-center'><FaMapPin className='m-1'/>{city}</div>
-            <h1>{(temp - 273.15).toFixed(1)} C</h1>
+            <h1>{(temp - 273.15).toFixed(1)} °C</h1>
         </div>
         <div className='temp-info'>
             <div className='flex'><FaWind className='m-3'/>{wind}</div>

@@ -1,5 +1,5 @@
 const initailState = {
-    loading : true,
+    loading : false,
     data : [],
     error : ""
 }
