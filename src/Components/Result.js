@@ -8,6 +8,7 @@ import Loading from "./Layout/Loading";
 function Result() {
   const dispatch = useDispatch();
   const myWeather = useSelector((state) => state.userData.data);
+  const myError = useSelector((state) => state.userData.error ?  true: false);
   const myLoading = useSelector((state) => state.userData.loading);
   const myChecked = useSelector((state) => state.FavReducer.data);
 
@@ -37,6 +38,15 @@ function Result() {
 
   if (myLoading) {
     return <Loading />;
+  }else if(myError){
+    return(
+      <center>
+        <div className="alert alert-error shadow-lg">
+          <span>Error! Please Check you Input</span>
+        </div>
+      </center>
+    )
+    
   } else {
     return (
       <>

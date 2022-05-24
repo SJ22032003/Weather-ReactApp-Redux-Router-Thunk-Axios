@@ -2,13 +2,10 @@
 import React from "react";
 import { useState } from "react";
 import { fetchUsers } from "../Components/Context/Action";
-import { useDispatch } from "react-redux";
+import { useDispatch  ,useSelector } from "react-redux";
 function Input() {
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
-
-  // const myWeather = useSelector((state) => state.userData.error || state.userData);
-  // console.log(myWeather);
 
   const handleSubmit = (e) => {
     e.preventDefault();
