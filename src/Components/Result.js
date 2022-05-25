@@ -1,5 +1,6 @@
 import React from "react";
 import { FaHeart, FaCheck } from "react-icons/fa";
+import {motion} from "framer-motion"
 import { useSelector, useDispatch } from "react-redux";
 import ResultItem from "./ResultItem";
 import { favouriteWeather, removeFav } from "./Context/Action";
@@ -8,7 +9,7 @@ import Loading from "./Layout/Loading";
 function Result() {
   const dispatch = useDispatch();
   const myWeather = useSelector((state) => state.userData.data);
-  const myError = useSelector((state) => state.userData.error ?  true: false);
+  const myError = useSelector((state) => (state.userData.error ? true : false));
   const myLoading = useSelector((state) => state.userData.loading);
   const myChecked = useSelector((state) => state.FavReducer.data);
 
@@ -38,32 +39,34 @@ function Result() {
 
   if (myLoading) {
     return <Loading />;
-  }else if(myError){
-    return(
+  } else if (myError) {
+    return (
       <center>
-        <div className="alert alert-error shadow-lg">
-          <span>Error! Please Check you Input</span>
-        </div>
+        <motion.div className="alert alert-error shadow-lg" animate={{scale:1.1 , }}>
+          <span>Error! Please Check your Input</span>
+        </motion.div>
       </center>
-    )
-    
+    );
   } else {
     return (
       <>
         <div className="indicator main-weather-div">
           <button
-            style={{ display: !myWeather.list ? "none" : "" , backgroundColor: exist ? "red" : "" }}
-            className=" btn-xs indicator-item indicator-start badge badge-secondary"
+            style={{
+              display: !myWeather.list ? "none" : "",
+              backgroundColor: exist ? "red" : "",
+            }}
+            className="btn-xs indicator-item indicator-start badge badge-secondary"
             onClick={exist ? handleRevFav : handleFav}
           >
-            <FaHeart hidden={exist}  />
-            <FaCheck hidden={!exist} title="added"/>
+            <FaHeart hidden={exist} />
+            <FaCheck hidden={!exist} title="added" />
           </button>
           <div className="weater-container">
             <div className="w-full">
               {myWeather.list && (
                 <div className="flex justify-center w-full">
-                  <div className="weather-report">
+                  <motion.div className="weather-report" initial={{height:100}} animate={{height:470}}>
                     <div className=" flex justify-center">
                       <figure className="flex justify-center">
                         <img
@@ -79,7 +82,7 @@ function Result() {
                       humidity={myWeather.list[0].main.humidity}
                       discription={myWeather.list[0].weather[0].description}
                     />
-                  </div>
+                  </motion.div>
                 </div>
               )}
             </div>
