@@ -5,7 +5,7 @@ const initialState = JSON.parse(localStorage.getItem("favourite")) || {
 const FavReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case "FAVOURITE_WEATHER":
+    case "FAVOURITE_WEATHER_API":
       newState = {
         ...state,
         data: [...state.data, action.payload],
@@ -16,7 +16,7 @@ const FavReducer = (state = initialState, action) => {
     case "DELETE_FAVOURITE_WEATHER":
       newState = {
         ...state,
-        data: state.data.filter((item) => item.city !== action.payload),
+        data: state.data.filter((item) => item.city.name !== action.payload),
       };
       localStorage.setItem("favourite", JSON.stringify(newState));
       return newState;
@@ -24,8 +24,8 @@ const FavReducer = (state = initialState, action) => {
     case "REMOVE_FAV":
       newState = {
         ...state,
-        data: state.data.filter((item) => item.city !== action.payload),
-      }
+        data: state.data.filter((item) => item.city.name !== action.payload),
+      };
       localStorage.setItem("favourite", JSON.stringify(newState));
       return newState;
 

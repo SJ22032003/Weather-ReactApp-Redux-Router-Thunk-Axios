@@ -1,6 +1,7 @@
 import React from "react";
+import { useEffect } from "react";
 import { FaHeart, FaCheck } from "react-icons/fa";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import ResultItem from "./ResultItem";
 import { favouriteWeather, removeFav } from "./Context/Action";
@@ -15,21 +16,16 @@ function Result() {
 
   let exist =
     myWeather.list &&
-    myChecked.find((item) => item.city === myWeather.city.name)
+    myChecked.find((item) => item.city.name === myWeather.city.name)
       ? true
       : false;
 
+useEffect(() => {
+  favouriteWeather()
+} , [myWeather])
+
   const handleFav = () => {
-    let favdata = {
-      city: myWeather.city.name,
-      country: myWeather.city.country,
-      temp: myWeather.list[0].main.temp,
-      wind: myWeather.list[0].wind.speed,
-      humidity: myWeather.list[0].main.humidity,
-      visibility: myWeather.list[0].visibility,
-      discription: myWeather.list[0].weather[0].description,
-      icon: myWeather.list[0].weather[0].icon,
-    };
+    let favdata = myWeather.city.name;
     dispatch(favouriteWeather(favdata));
   };
 
@@ -42,7 +38,10 @@ function Result() {
   } else if (myError) {
     return (
       <center>
-        <motion.div className="alert alert-error shadow-lg" animate={{scale:1.1 , }}>
+        <motion.div
+          className="alert alert-error shadow-lg"
+          animate={{ scale: 1.1 }}
+        >
           <span>Error! Please Check your Input</span>
         </motion.div>
       </center>
@@ -66,7 +65,11 @@ function Result() {
             <div className="w-full">
               {myWeather.list && (
                 <div className="flex justify-center w-full">
-                  <motion.div className="weather-report" initial={{height:100}} animate={{height:470}}>
+                  <motion.div
+                    className="weather-report"
+                    initial={{ height: 100 }}
+                    animate={{ height: 470 }}
+                  >
                     <div className=" flex justify-center">
                       <figure className="flex justify-center">
                         <img

@@ -22,7 +22,7 @@ function FavouriteResult({ city, temp, country, icon, discription }) {
             <h2 className="card-title"><FaMapPin/>{city}</h2>
           </figure>
           <div className="card-body">
-            <h3 className="text-xl text-white">{(temp-273).toFixed(1)} °C</h3>
+            <h3 className="text-xl text-white">{(temp-273.15).toFixed(1)} °C</h3>
             <p>{discription}</p>
           </div>
         </div>
